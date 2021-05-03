@@ -1,0 +1,10 @@
+node {
+    checkout scm
+
+    docker.withRegistry('', 'dockerhub') {
+
+        def customImage = docker.build("saquib/test")
+
+        customImage.push()
+    }
+}
